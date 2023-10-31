@@ -5,31 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yusuf Portfolio</title>
   <style>
-    /* Your CSS styles here */
+    /* Reset some default styles */
     body {
-      font-family: 'Times New Roman', Times, serif, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f5f5f5;
     }
 
+    /* Header Styles */
     header {
-      background-color: #f0f0f0;
-      padding: 20px;
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 20px;
+    
+      flex-direction: column;
       text-align: center;
     }
 
     header h1 {
-      font-size: 2em;
+      font-size: 2.5em;
       margin: 0;
+      text-transform: uppercase;
     }
 
     header p {
+      font-size: 1.2em;
       margin: 0;
+      opacity: 0.8;
     }
 
-    /* Add some style to the menu */
+    /* Menu Styles */
     ul.menu {
-      background-color: #333;
+      background-color: #1a1a1a;
       padding: 10px 0;
       text-align: center;
     }
@@ -42,65 +50,104 @@
     ul.menu li a {
       text-decoration: none;
       color: white;
+      font-size: 1.2em;
+      transition: color 0.3s;
     }
 
-    /* Add style for the image */
-    img.profile-pic {
+    ul.menu li a:hover {
+      color: #3498db; /* Change the color on hover */
+    }
+
+     /* Add style for the image */
+     img.profile-pic {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 100px; /* Adjust the width as needed */
+      top: 40px;
+      left: 40px;
+      width: 120px; /* Adjust the width as needed */
       height: auto;
       border: 2px solid #333;
       border-radius: 50%;
     }
 
+    /* Section Styles */
     section {
-      padding: 20px;
-    }
-
-    section#about {
-      background-color: #f9f9f9;
-    }
-
-    section#projects {
-      background-color: #e8e8e8;
-    }
-
-    section#contact {
-      background-color: #f0f0f0;
+      padding: 40px;
+      margin: 20px 0;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     section h2 {
+      font-size: 2.5em;
       margin-top: 0;
+      color: #1a1a1a;
     }
 
-    section ul {
+    section p {
+      font-size: 1.4em;
+      color: #333;
+    }
+
+    /* Projects List Styles */
+    section#projects ul {
       list-style: none;
       padding: 0;
     }
 
-    section li {
-      margin-bottom: 15px;
+    section#projects li {
+      margin-bottom: 30px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
+    /* Contact Styles */
+    section#contact a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1em;
+    }
+
+    section#contact a {
+      color: #060606;
+      text-decoration: none;
+      font-size: 1em;
+    }
+
+    /* Footer Styles */
     footer {
-      background-color: #333;
+      background-color: #1a1a1a;
       color: white;
       text-align: center;
-      padding: 10px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
+      padding: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+      header p {
+        font-size: 1.2em;
+      }
+      ul.menu li a { 
+        font-size: 1.2em;
+      }
+      img.profile-pic {
+        width: 120px;
+        height: 120px;
+      }
     }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <img class="profile-pic" src="babana.jpg" alt="your-profile-image">
-    <h1>Yusuf Suleiman Babana</h1>
-    <p>Data Scientist &amp; Analyst</p>
+    <img class="profile-pic" src="C:\Users\Yusuf Suleiman\Documents\Visual Studio 2017\machine learning\Portfolio\WhatsApp Image 2023-10-20 at 10.50.59_172ed4d9.jpg" alt="your-profile-image">
+    <h1>YUSUF SULEIMAN BABANA</h1>
+    <p>DATA SCIENTIST & ANALYST</p>
   </header>
 
   <!-- Menu -->
@@ -113,23 +160,27 @@
   </ul>
   <!-- Home Section -->
   <section id="home">
-    <h2>Welcome to My Portfolio</h2>
-    <p>
-      Welcome to my portfolio page. Here, you'll find information about me, my projects, and how to get in touch. Explore the sections below to learn more.
-    </p>
+    <h2>Welcome to My Data Universe!🌌</h2>
   </section>
   <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Greetings! I am Yusuf Suleiman, a passionate and results-driven Data Analyst with a strong foundation in mathematics, statistics, and computer science. I am on a mission to unravel insights from complex data sets and transform them into actionable strategies. My journey in the realm of data analytics began during my academic pursuit in [Your Academic Background] where I honed my skills in quantitative analysis and problem-solving.
+    <p><h2>Welcome to My Data Odyssey! 🚀</h2>
 
-        Driven by an insatiable curiosity, I immerse myself in the world of data, utilizing tools like Python, R, SQL, and Tableau to dissect and visualize data patterns. Having successfully contributed to projects in medical insurance price prediction, cryptocurrency analysis, and HR analytics, I am well-versed in handling diverse data domains. My experience extends to ensuring data cleanliness, augmentation, and maintaining balanced classes, vital for accurate analysis.
-        
-        What sets me apart is my ability to not only grasp the intricacies of data but also effectively communicate my findings. Whether it's crafting insightful reports or presenting findings to diverse audiences, I prioritize clarity and precision. Being a team player, I thrive in collaborative environments, valuing the amalgamation of diverse perspectives that fuel innovation and drive superior outcomes.
-        
-        Aside from my technical prowess, I am deeply committed to creating an inclusive and diverse workspace. I believe that our differences are our greatest strength and enable us to make informed decisions. Upholding values of integrity, respect, and excellence, I consistently challenge myself to adapt to evolving technologies and industry trends.
-        
-        Join me on this exciting journey as we unravel the untold stories hidden within data and empower decision-makers to drive a better tomorrow.
+      <p>Hey there! 👋 I'm Yusuf Suleiman Babana, an enthusiastic Data Scientist and Analyst passionate about unraveling insights from complex data landscapes to drive informed decision-making and foster innovation.</p>
+  
+      <h3>Unveiling Data Stories 📊</h3>
+      <p>My journey began with a passion for statistics that evolved into a career exploring the intricate world of data. From delving into ESG and financial data at Independent Project Monitoring Company to fine-tuning customer address accuracy at Polaris Digitech, I've honed my skills in collecting, analyzing, and interpreting data that matters. I thrive on transforming raw information into actionable insights, leveraging statistical methods and machine learning techniques.</p>
+  
+      <h3>Navigating the Data Universe 🚀</h3>
+      <p>An alchemist with tools like Python, R, Excel, and more, I craft stories out of numbers, unraveling patterns, and unveiling trends that guide sustainable decisions. Armed with a BSc in Statistics from the University of Ilorin and fortified by the Google Data Analytics Professional Certificate, I've woven a tapestry of skills in data visualization, statistical intuition, and database wizardry.</p>
+  
+      <h3>Beyond Numbers: Impact and Innovation 💡</h3>
+      <p>Outside the realms of statistical codes and machine learning models, I've delved into immersive simulations at British Airways and KPMG AU, fathoming the depths of customer behavior analysis and analytics-driven decision-making.</p>
+  
+      <h3>Let's Connect and Innovate 🌐</h3>
+      <p>I'm thrilled to connect with like-minded individuals and organizations, aiming to explore the uncharted territories of data science, contribute innovative solutions, and drive impact in the realms of energy efficiency, housing, and beyond.</p>
+      <p>Let's embark on this exhilarating journey of transforming data into actionable insights and crafting a data-driven future together! </p>
     </p>
   </section>
 
@@ -137,32 +188,115 @@
   <section id="certificates">
     <h2>Certificates</h2>
     <p>
-      <!-- Your "Certificates" content here -->
+      <a href="https://drive.google.com/drive/folders/11QIDFOl2P91csOkjJd585bD-tnbEI_xN?usp=drive_link">View</a>
     </p>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>
-        <h3>Project 1</h3>
-        <p>Description of Project 1.</p>
+ <!-- Projects Section -->
+<section id="projects">
+  <h2>Projects</h2>
+  <ul>
+    <li>
+      <h1>Hypertension and Diabetes Prediction with Machine Learning</h1>
+      <p><h3>Introduction:</h3>
+        The "Hypertension and Diabetes Prediction with Machine Learning" project focuses on leveraging machine learning models to predict the occurrence of hypertension and diabetes based on relevant patient health data. The project encompasses data exploration, model training, evaluation, and predictive analysis for both medical conditions.
+      </p>
+      <p>
+        <h3>Hypertension Analysis:</h3>
+        The initial phase involves analyzing data related to hypertension.
+        Data Cleaning; Checking for missing values and filling them with the mean of respective columns.
+        Data Split; Division of the dataset into features and target variables.
+        Model Training; Employing multiple classification models like Logistic Regression, Decision Tree, Random Forest, SVM, and K-Nearest Neighbors (KNN) for predicting hypertension.
+        Model Evaluation; Comparing model accuracies and selecting the best-performing model for predicting hypertension.
+        The Random Forest model emerged as the most accurate (99.81%) for hypertension prediction. It demonstrated exceptional performance, accurately predicting both classes (presence and absence of hypertension) with high precision and recall.
+      </p>
+      <p>  
+        <h3>Hypertension Prediction for Hypothetical Data:</h3>
+        Using the trained Random Forest model, the project predicts the occurrence of hypertension for hypothetical health data, showcasing its predictive power for new observations.
+      </p>
+      <p>
+        <h3>Diabetes Analysis:</h3>
+        Moving onto the analysis for diabetes:
+      </p>
+      <p>
+        <h3>Data Preparation:</h3> Splitting the dataset into features and target variables for diabetes prediction.
+        Model Training: Training different classifiers, including Random Forest, Logistic Regression, Decision Tree, SVM, and KNN, for diabetes prediction.
+        Model Evaluation: Assessing model performances, comparing accuracies, and identifying the most effective model for diabetes prediction.
+        The Random Forest model demonstrated substantial accuracy in predicting diabetes, achieving an accuracy of 99.81%.
+      </p>    
+      <p>
+        <h3>Conclusion:</h3>
+        The project highlights the effectiveness of machine learning models in predicting both hypertension and diabetes based on patient health data. The Random Forest model emerged as the top performer for both medical conditions, showcasing its strength in accurately predicting instances of both diseases. The high precision, recall, and F1-score values affirm the robustness and reliability of these models in healthcare predictions.
+     <p>
+     </p>
+        <h3>Future Scope:</h3>
+        Future iterations could involve fine-tuning model parameters, exploring additional features or datasets, or implementing ensemble methods to further enhance prediction accuracy and robustness</p>
+      </p>
+      <p>
+        <a href="https://colab.research.google.com/drive/1HTVxqlLGp94KGlMMkuBPTtq8zGkg0VCT?usp=sharing">Code</a>
+      </p>
       </li>
-      <li>
-        <h3>Project 2</h3>
-        <p>Description of Project 2.</p>
-      </li>
-      <!-- Add more projects as needed -->
-    </ul>
-  </section>
+    <li>
+      <h3>Medical Insurance Prediction using MACHINE LEARNING</h3>
+      <p>
+      </h3><p><h3>Introduction:</h3> The "Predictive Modeling for Health Insurance Charges" project focuses on utilizing machine learning techniques to predict medical charges for health insurance purposes. This project explores the development and comparison of predictive models to estimate individual medical expenses based on various customer attributes. The project aims to enhance efficiency and profitability for health insurance companies by leveraging advanced data analysis and predictive modeling techniques.
+      </p>
+      <p>
+      </h3><p><h3>Objective:</h3> The primary objective of this project is to build and evaluate machine learning models capable of accurately predicting individual medical charges for health insurance based on demographic, lifestyle, and medical data. The project seeks to improve predictive accuracy, compare model performance, and demonstrate the potential benefits for health insurance companies.
+      </p>
+      <p>
+      </h3><p><h3>Methodology:</h3> Data Exploration and Preprocessing: The project begins with exploring a comprehensive dataset containing information about individuals' age, gender, BMI, number of children, smoking habits, and region.
+      </h3><p><h3>Model Development:</h3> Two distinct machine learning models were developed and evaluated:
+      </h3><p><h3>Linear Regression Model:</h3> An initial model utilizing linear regression was trained to predict medical charges based on the provided features.
+      </h3><p><h3>Random Forest Model:</h3> Following the linear regression, a more complex Random Forest model was implemented to compare predictive performance.
+      </h3><p><h3>Model Evaluation:</h3> The models' performance was evaluated using metrics such as Mean Squared Error (MSE) and R-squared to measure predictive accuracy and variance explained by the models.
+      </p>
+      <p>
+      </h3><p><h3>Results:</h3> The project yielded the following key outcomes:The Linear Regression model exhibited a Mean Squared Error (MSE) of approximately 33.6 million and an R-squared value of 0.784.
+        Subsequently, the Random Forest model showed a considerable improvement with an MSE of around 20.9 million and an R-squared value of 0.866, signifying enhanced predictive accuracy and variance explanation.
+      </p>
+      <p>
+      </h3><p><h3>Predictive Use Case:</h3>
+        An illustrative example was presented using the trained Random Forest model to predict medical charges for a hypothetical individual based on their demographic and lifestyle attributes.
+      </p>
+      <p>
+      </h3><p><h3>Significance and Impact:</h3>
+        The project demonstrates the significant potential of machine learning in the health insurance sector. By accurately predicting medical charges, these models assist insurance companies in risk assessment, fraud detection, personalized customer service, and more, ultimately enhancing operational efficiency and profitability.
+      </p>
+      <p>
+      </h3><p><h3>Conclusion:</h3>
+        The utilization of machine learning models, especially the Random Forest algorithm, showcases a substantial improvement in predictive accuracy for estimating medical charges in the health insurance domain. This project provides a demonstration of the potential advantages for insurance companies in adopting advanced predictive analytics.
+      </p>
+      <p>
+      </h3><p><h3>Future Directions:</h3>
+        Future work may involve expanding the dataset, exploring additional machine learning algorithms, and focusing on feature engineering to further improve model performance and address specific challenges in the health insurance domain
+      </p>
+      <p>
+        <a href="https://colab.research.google.com/drive/1ViSUZrONzZ7vOeKyWn3zPKRPvdF2mAY6?usp=sharing">Code</a>
+      </p>
+    </li>
+    <li><h1>
+      HR Employee Attrition Analysis and Visualization
+    </h3><p><h2>Introduction:</h3> The "HR Employee Attrition Analysis and Visualization" project delves into understanding and visualizing employee attrition data within an HR dataset. This project aims to explore the factors and characteristics influencing attrition rates among employees in an</p></li>
+  </h3><p><h3>Objective:</h3> The primary goal of this project is to conduct an in-depth analysis of employee attrition by utilizing data visualization techniques to gain insights into the distribution and relationships of various factors such as age, job roles, marital status, department, education field, and more. The analysis aims to identify potential patterns or correlations that might contribute to attrition within the organization.</p></li>
+</h3><p><h3>Methodology:</h3> The project begins with loading an HR dataset and performing initial data exploration and cleaning tasks. It includes:
+Removing redundant columns such as 'EmployeeCount' and 'StandardHours'. Renaming columns for clarity and consistency. Addressing duplicates and missing values in the dataset. Following data preparation, the project employs visualizations using Matplotlib and Seaborn to explore various facets of employee data, including age distribution, overtime work, marital status, job roles, gender diversity, education field distribution, departmental diversity, and business travel frequency.</p></li>    
+</h3><p><h3>Key Observations:</h3>Overtime and Age Relationship: Visualizing the relationship between overtime work and age to understand potential age-related trends in overtime activities. Marital Status Diversity: Analyzing the distribution of employees across different marital statuses. Job Role and Department Distribution: Investigating the distribution of employees across various job roles and departments. Gender Diversity: Understanding the gender distribution within the organization. Education Field Spread: Exploring the diversity in educational backgrounds among employees.</p></li>
+</h3><p><h3>Business Travel Frequency:</h3>Visualizing the frequency of business travel among employees. Significance and Impact: The analysis of employee attrition and associated factors is crucial for organizations. Understanding these factors could help in:
+Identifying patterns or characteristics that might contribute to employee attrition. Creating targeted retention strategies to address potential areas of concern. Improving organizational practices or policies to enhance employee satisfaction and reduce attrition rates. Conclusion: This project's visual analysis provides an overview of various factors related to employee attrition within an organization. The insights gained from this analysis could be further utilized to develop strategies for employee retention and organizational enhancement.</p></li>
+<p>
+  <a href="https://colab.research.google.com/drive/11IJpFowy3a31dI6lUtaFN--PFdth7EjP?usp=drive_link">Code</a>
+</p>
+</ul>
+</section>
+
 
   <!-- Contact Section -->
   <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:babanayusuff@gmail.com">babanayusuff@gmail.com</a></p>
+    <h3>Contact</h3>
+    <p><a href="mailto:babanayusuff@gmail.com">Gmail</a></p>
+    <p><a href="https://www.linkedin.com/in/yusuf-suleiman-5850b2220">Linkedin</a></p>
     <p>Mobile: +2348034054358</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/yusuf-suleiman-5850b2220" target="_blank">linkedin.com/in/yusuf-suleiman-5850b2220</a></p>
   </section>
 
   <!-- Footer -->
