@@ -140,7 +140,39 @@
         height: 120px;
       }
     }
+    /* Style for dropdown */
+    .dropdown {
+      display: none;
+  position: relative; /* Set it to relative or absolute based on your layout */
+  top: 10px; /* Adjust the distance from the title */
+  left: 0; /* Adjust the horizontal positioning */
+  width: 100%; /* Adjust the width if needed */
+  padding: 10px; /* Add padding to create separation */
+  background-color: #fff; /* Background color for the dropdown */
+  border: 1px solid #ddd; /* Border to outline the dropdown */
+  border-radius: 5px; /* Rounded corners for a nicer look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    }
   </style>
+  <!-- JavaScript function for toggling dropdown visibility -->
+  <script>
+    function toggleDropdown(id) {
+      var dropdown = document.getElementById(id);
+      if (dropdown.style.display === "none" || dropdown.style.display === "") {
+        dropdown.style.display = "block";
+      } else {
+        dropdown.style.display = "none";
+      }
+
+      // Hide other dropdowns
+      var dropdowns = document.querySelectorAll('.dropdown');
+      for (var i = 0; i < dropdowns.length; i++) {
+        if (dropdowns[i].id !== id) {
+          dropdowns[i].style.display = 'none';
+        }
+      }
+    }
+  </script>
 </head>
 <body>
   <!-- Header -->
@@ -186,7 +218,7 @@
 
   <!-- Certificates Section -->
   <section id="certificates">
-    <h2>Certificates</h2>
+    <h1>Certificates</h1>
     <p>
       <a href="https://drive.google.com/drive/folders/11QIDFOl2P91csOkjJd585bD-tnbEI_xN?usp=drive_link">View</a>
     </p>
@@ -194,50 +226,53 @@
 
  <!-- Projects Section -->
 <section id="projects">
-  <h2>Projects</h2>
-  <ul>
+  <h1>Projects</h1>
     <li>
-      <h1>Hypertension and Diabetes Prediction with Machine Learning</h1>
-      <p><h3>Introduction:</h3>
+      <h1 onclick="toggleDropdown('project1')">Hypertension and Diabetes Prediction with Machine Learning</h1>
+      <div id="project1" class="dropdown">
+      <p>
+        <h1>Introduction:</h1>
         The "Hypertension and Diabetes Prediction with Machine Learning" project focuses on leveraging machine learning models to predict the occurrence of hypertension and diabetes based on relevant patient health data. The project encompasses data exploration, model training, evaluation, and predictive analysis for both medical conditions.
       </p>
       <p>
-        <h3>Hypertension Analysis:</h3>
+        <h1>Hypertension Analysis:</h1>
         The initial phase involves analyzing data related to hypertension.
         Data Cleaning Checking for missing values and filling them with the mean of respective columns.
-        <h3>Data Split:</h3> Division of the dataset into features and target variables.
-        <h3>Model Training:</h3>h3> Employing multiple classification models like Logistic Regression, Decision Tree, Random Forest, SVM, and K-Nearest Neighbors (KNN) for predicting hypertension.
-        <h3>Model Evaluation:</h3> Comparing model accuracies and selecting the best-performing model for predicting hypertension.
+        <h1>Data Split:</h1> Division of the dataset into features and target variables.
+        <h1>Model Training:</h1>h3> Employing multiple classification models like Logistic Regression, Decision Tree, Random Forest, SVM, and K-Nearest Neighbors (KNN) for predicting hypertension.
+        <h1>Model Evaluation:</h1> Comparing model accuracies and selecting the best-performing model for predicting hypertension.
         The Random Forest model emerged as the most accurate (99.81%) for hypertension prediction. It demonstrated exceptional performance, accurately predicting both classes (presence and absence of hypertension) with high precision and recall.
       </p>
       <p>  
-        <h3>Hypertension Prediction for Hypothetical Data:</h3>
+        <h1>Hypertension Prediction for Hypothetical Data:</h1>
         Using the trained Random Forest model, the project predicts the occurrence of hypertension for hypothetical health data, showcasing its predictive power for new observations.
       </p>
       <p>
-        <h3>Diabetes Analysis:</h3>
+        <h1>Diabetes Analysis:</h1>
         Moving onto the analysis for diabetes:
       </p>
       <p>
-        <h3>Data Preparation:</h3> Splitting the dataset into features and target variables for diabetes prediction.
-        <h3>Model Training:</h3> Training different classifiers, including Random Forest, Logistic Regression, Decision Tree, SVM, and KNN, for diabetes prediction.
-        <h3>Model Evaluation:</h3> Assessing model performances, comparing accuracies, and identifying the most effective model for diabetes prediction.
+        <h1>Data Preparation:</h1> Splitting the dataset into features and target variables for diabetes prediction.
+        <h1>Model Training:</h1> Training different classifiers, including Random Forest, Logistic Regression, Decision Tree, SVM, and KNN, for diabetes prediction.
+        <h1>Model Evaluation:</h1> Assessing model performances, comparing accuracies, and identifying the most effective model for diabetes prediction.
         The Random Forest model demonstrated substantial accuracy in predicting diabetes, achieving an accuracy of 99.81%.
       </p>    
       <p>
-        <h3>Conclusion:</h3>
+        <h1>Conclusion:</h1>
         The project highlights the effectiveness of machine learning models in predicting both hypertension and diabetes based on patient health data. The Random Forest model emerged as the top performer for both medical conditions, showcasing its strength in accurately predicting instances of both diseases. The high precision, recall, and F1-score values affirm the robustness and reliability of these models in healthcare predictions.
      <p>
      </p>
-        <h3>Future Scope:</h3>
+        <h1>Future Scope:</h1>
         Future iterations could involve fine-tuning model parameters, exploring additional features or datasets, or implementing ensemble methods to further enhance prediction accuracy and robustness</p>
       </p>
       <p>
         <a href="https://colab.research.google.com/drive/1HTVxqlLGp94KGlMMkuBPTtq8zGkg0VCT?usp=sharing">Code</a>
       </p>
+    </div>
       </li>
     <li>
-      <h3>Medical Insurance Prediction using MACHINE LEARNING</h3>
+      <h1 onclick="toggleDropdown('project2')">Medical Insurance Prediction using MACHINE LEARNING</h1>
+      <div id="project2" class="dropdown">
       <p>
       </h3><p><h3>Introduction:</h3> The "Predictive Modeling for Health Insurance Charges" project focuses on utilizing machine learning techniques to predict medical charges for health insurance purposes. This project explores the development and comparison of predictive models to estimate individual medical expenses based on various customer attributes. The project aims to enhance efficiency and profitability for health insurance companies by leveraging advanced data analysis and predictive modeling techniques.
       </p>
@@ -245,11 +280,11 @@
       </h3><p><h3>Objective:</h3> The primary objective of this project is to build and evaluate machine learning models capable of accurately predicting individual medical charges for health insurance based on demographic, lifestyle, and medical data. The project seeks to improve predictive accuracy, compare model performance, and demonstrate the potential benefits for health insurance companies.
       </p>
       <p>
-      </h3><p><h3>Methodology:</h3> Data Exploration and Preprocessing: The project begins with exploring a comprehensive dataset containing information about individuals' age, gender, BMI, number of children, smoking habits, and region.
-      </h3><p><h3>Model Development:</h3> Two distinct machine learning models were developed and evaluated:
-      </h3><p><h3>Linear Regression Model:</h3> An initial model utilizing linear regression was trained to predict medical charges based on the provided features.
-      </h3><p><h3>Random Forest Model:</h3> Following the linear regression, a more complex Random Forest model was implemented to compare predictive performance.
-      </h3><p><h3>Model Evaluation:</h3> The models' performance was evaluated using metrics such as Mean Squared Error (MSE) and R-squared to measure predictive accuracy and variance explained by the models.
+      <h3>Methodology:</h3> Data Exploration and Preprocessing: The project begins with exploring a comprehensive dataset containing information about individuals' age, gender, BMI, number of children, smoking habits, and region.
+      <h3>Model Development:</h3> Two distinct machine learning models were developed and evaluated:
+      <h3>Linear Regression Model:</h3> An initial model utilizing linear regression was trained to predict medical charges based on the provided features.
+      <h3>Random Forest Model:</h3> Following the linear regression, a more complex Random Forest model was implemented to compare predictive performance.
+      <h3>Model Evaluation:</h3> The models' performance was evaluated using metrics such as Mean Squared Error (MSE) and R-squared to measure predictive accuracy and variance explained by the models.
       </p>
       <p>
       </h3><p><h3>Results:</h3> The project yielded the following key outcomes:The Linear Regression model exhibited a Mean Squared Error (MSE) of approximately 33.6 million and an R-squared value of 0.784.
@@ -276,56 +311,115 @@
       </p>
     </li>
     <li>
-      <h1>HR Employee Attrition Analysis and Visualization</h1>
-      <p></h3><p><h3>Introduction:</h3> The "HR Employee Attrition Analysis and Visualization" project delves into understanding and visualizing employee attrition data within an HR dataset. This project aims to explore the factors and characteristics influencing attrition rates among employees</p></li>
-    <p></h3><p><h3>Objective:</h3> The primary goal of this project is to conduct an in-depth analysis of employee attrition by utilizing data visualization techniques to gain insights into the distribution and relationships of various factors such as age, job roles, marital status, department, education field, and more. The analysis aims to identify potential patterns or correlations that might contribute to attrition within the organization.</p></li>
-    <p></h3><p><h3>Methodology:</h3> The project begins with loading an HR dataset and performing initial data exploration and cleaning tasks. It includes:
-    Removing redundant columns such as 'EmployeeCount' and 'StandardHours'. Renaming columns for clarity and consistency. Addressing duplicates and missing values in the dataset. Following data preparation, the project employs visualizations using Matplotlib and Seaborn to explore various facets of employee data, including age distribution, overtime work, marital status, job roles, gender diversity, education field distribution, departmental diversity, and business travel frequency.</p></li>
-    <p></h3><p><h3>Key Observations:</h3><h3>Overtime and Age Relationship:</h3> Visualizing the relationship between overtime work and age to understand potential age-related trends in overtime activities. Marital Status Diversity: Analyzing the distribution of employees across different marital statuses. <h3>Job Role and Department Distribution:</h3> Investigating the distribution of employees across various job roles and departments. <h3>Gender Diversity:</h3> Understanding the gender distribution within the organization. <h3>Education Field Spread:</h3> Exploring the diversity in educational backgrounds among employees.</p></li>
-    <p><h3>Business Travel Frequency:</h3>Visualizing the frequency of business travel among employees. <h3>Significance and Impact:</h3> The analysis of employee attrition and associated factors is crucial for organizations. Understanding these factors could help in:
-      Identifying patterns or characteristics that might contribute to employee attrition. Creating targeted retention strategies to address potential areas of concern. Improving organizational practices or policies to enhance employee satisfaction and reduce attrition rates.</p></li>
-    <p><h3>Conclusion:</h3> This project's visual analysis provides an overview of various factors related to employee attrition within an organization. The insights gained from this analysis could be further utilized to develop strategies for employee retention and organizational enhancement.</p></li>   
+      <h3 onclick="toggleDropdown('project3')">HR Employee Attrition Analysis and Visualization</h3>
+      <div id="project3" class="dropdown">
+    <h3>Introduction:</h3> The "HR Employee Attrition Analysis and Visualization" project delves into understanding and visualizing employee attrition data within an HR dataset. This project aims to explore the factors and characteristics influencing attrition rates among employees
+    <h3>Objective:</h3> The primary goal of this project is to conduct an in-depth analysis of employee attrition by utilizing data visualization techniques to gain insights into the distribution and relationships of various factors such as age, job roles, marital status, department, education field, and more. The analysis aims to identify potential patterns or correlations that might contribute to attrition within the organization.
+    <h3>Methodology:</h3> The project begins with loading an HR dataset and performing initial data exploration and cleaning tasks. It includes:
+    Removing redundant columns such as 'EmployeeCount' and 'StandardHours'. Renaming columns for clarity and consistency. Addressing duplicates and missing values in the dataset. Following data preparation, the project employs visualizations using Matplotlib and Seaborn to explore various facets of employee data, including age distribution, overtime work, marital status, job roles, gender diversity, education field distribution, departmental diversity, and business travel frequency.
+    <h3>Key Observations:</h3><h3>Overtime and Age Relationship:</h3> Visualizing the relationship between overtime work and age to understand potential age-related trends in overtime activities. Marital Status Diversity: Analyzing the distribution of employees across different marital statuses. 
+    <h3>Job Role and Department Distribution:</h3> Investigating the distribution of employees across various job roles and departments. <h3>Gender Diversity:</h3> Understanding the gender distribution within the organization. <h3>Education Field Spread:</h3> Exploring the diversity in educational backgrounds among employees.
+    <h3>Business Travel Frequency:</h3>Visualizing the frequency of business travel among employees. <h3>Significance and Impact:</h3> The analysis of employee attrition and associated factors is crucial for organizations. Understanding these factors could help in:
+      Identifying patterns or characteristics that might contribute to employee attrition. Creating targeted retention strategies to address potential areas of concern. Improving organizational practices or policies to enhance employee satisfaction and reduce attrition rates.
+    <h3>Conclusion:</h3> This project's visual analysis provides an overview of various factors related to employee attrition within an organization. The insights gained from this analysis could be further utilized to develop strategies for employee retention and organizational enhancement.
 <p>
   <a href="https://colab.research.google.com/drive/11IJpFowy3a31dI6lUtaFN--PFdth7EjP?usp=drive_link">Code</a>
 </p>
   </li>
+  <li>
+    <h3 onclick="toggleDropdown('project4')">Healthcare Analytics Dashboard</h3>
+      <div id="project4" class="dropdown">
+    <h3>Overview:</h3>
+    The Healthcare Analytics Dashboard is a comprehensive visualization tool developed using Power BI, designed to analyze and interpret critical insights from a diverse healthcare dataset. This project aims to provide a clear, concise, and insightful representation of patient demographics, medical conditions, billing trends, and hospital metrics.</p>
+
+    <h4>Dashboard Contents:</h4>
+
+    <h4>Summary Page:</h4>
+      Total count of patients, doctors, hospitals, and insurance providers for an overarching view of the dataset.
+      Aggregate billing amount and average length of stay metrics for effective financial and operational analysis.
+      Stacked column chart showcasing days stayed by gender, offering insights into gender-based medical requirements.
+      Stacked area chart depicting patient admission and discharge trends over months for strategic resource planning.
+      Donut charts illustrating average billing by age group and distribution of gender and medical conditions across age groups.
+
+    <h4>Patient Page:</h4>
+      Funnel visualization presenting billing amounts categorized by medical condition, aiding in understanding cost distribution.
+      Bar chart displaying billing amounts across different insurance companies for financial assessment and partnerships.
+      Detailed patient demographics including name, gender, age group, blood type, medical condition, medication, days stayed, billing amount, insurance provider, and test results.
+      Donut chart highlighting medical conditions by medication for treatment analysis.
+      Clustered column chart depicting medical conditions by gender for demographic-specific insights.
+      Interactive slicers for filtering by admission type, years, months, and test results for precise data exploration.
+    <h4>Significance of the Project:</h4>
+    The Healthcare Analytics Dashboard serves as a powerful tool for healthcare professionals, administrators, and analysts to derive actionable insights. It facilitates data-driven decision-making, aids in resource allocation, identifies trends in medical conditions, and enhances financial planning through comprehensive visualization and interactive exploration of the dataset.
+    <h4>Impact and Future Scope:</h4>
+    This project lays the foundation for data-driven strategies in healthcare management. Future enhancements could involve predictive analytics for patient outcomes, real-time data integration for dynamic insights, and machine learning models for prognosis and diagnosis support.
+    <h4>Conclusion:</h4>
+    The Power BI Dashboard on the healthcare dataset offers a comprehensive and intuitive interface to explore, analyze, and derive valuable insights, empowering healthcare stakeholders to make informed decisions and optimize operations effectively.
+    <!-- ... -->
+      <!-- Image slider -->
+      <div class="slideshow-container">
+        <div class="mySlides">
+          <img src="HEALTHCARE 1.png" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <img src="HEALTHCARE 2.png" style="width:100%">
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+
+      <!-- Script for image slider -->
+      <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          if (n > slides.length) { slideIndex = 1 }
+          if (n < 1) { slideIndex = slides.length }
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          slides[slideIndex - 1].style.display = "block";
+        }
+      </script>
+      <p>This project serves as a comprehensive exploration of the Superstore's sales and profit dynamics, offering actionable insights crucial for informed decision-making and strategic planning.
+        <a href="https://drive.google.com/file/d/1Kx6_PxxbN719yzRN9dgvivbloIq8t-ls/view?usp=drive_link">Link to Power BI file</a>
+      </p>
+  </li>
     <li>
-      <h1>Power Bi- Exploring Superstore Sales and Profit Dynamics</h1>
-      <p></h3><p><h3>Overview:</h3> In this project, I delved into an in-depth analysis of a Superstore Giant's dataset to unravel critical insights for strategic decision-making. The dataset encompassed various dimensions, including customer details, product information, sales, and profit-related metrics.</p></li>
-      <h2>Overview:</h2>
-    <p>In this project, I delved into an in-depth analysis of a Superstore Giant's dataset to unravel critical insights for strategic decision-making. The dataset encompassed various dimensions, including customer details, product information, sales, and profit-related metrics.</p>
-
-    <h2>Key Visualizations and Insights:</h2>
-    <h3>Overview Tab:</h3>
-    <ul>
-        <li>Sales, Profit, and Quantity Trends: Explored over years to identify growth patterns and fluctuations.</li>
-        <li>Ship Date Analysis: Analyzed quantity trends concerning shipping dates to understand demand dynamics.</li>
-        <li>Discounts across Regions: Examined the impact of discounts on sales across different regions.</li>
-        <li>Category Insights by Ship Date: Explored how product categories perform concerning shipment timelines.</li>
-        <li>Price Variances by Customer Segments: Investigated pricing dynamics concerning different customer segments.</li>
-    </ul>
+      <h3 onclick="toggleDropdown('project5')">Power Bi- Exploring Superstore Sales and Profit Dynamics</h3>
+      <div id="project5" class="dropdown">
+    <h3>Overview:</h3> In this project, I delved into an in-depth analysis of a Superstore Giant's dataset to unravel critical insights for strategic decision-making. The dataset encompassed various dimensions, including customer details, product information, sales, and profit-related metrics.
+    <h3>Key Visualizations and Insights:</h3>
+    <h3>Overview:</h3>
+    <h3>Sales, Profit, and Quantity Trends: </h3>Explored over years to identify growth patterns and fluctuations.
+    <h3>Ship Date Analysis:</h3> Analyzed quantity trends concerning shipping dates to understand demand dynamics.
+    <h3>Discounts across Regions:</h3> Examined the impact of discounts on sales across different regions.
+    <h3>Category Insights by Ship Date:</h3> Explored how product categories perform concerning shipment timelines.
+    <h3>Price Variances by Customer Segments:</h3> Investigated pricing dynamics concerning different customer segments.
     <h3>Region Tab:</h3>
-    <ul>
-        <li>Sales Distribution across States: Visualized sales distribution across different states.</li>
-        <li>Quantity Analysis by Region: Explored quantity trends and regional preferences.</li>
-        <li>Profit Variations across Regions: Identified profit dynamics concerning different regions.</li>
-        <li>Matrix Table: Provided a comprehensive overview of sales, profit, and quantity metrics across states.</li>
-    </ul>
+    <h4>Sales Distribution across States:</h4> Visualized sales distribution across different states.
+    <h4>Quantity Analysis by Region:</h4> Explored quantity trends and regional preferences.
+    <h4>Profit Variations across Regions:</h4> Identified profit dynamics concerning different regions.
+    <h4>Matrix Table:</h4> Provided a comprehensive overview of sales, profit, and quantity metrics across states.
 
-    <h2>Business Insights and Recommendations:</h2>
-    <ul>
-        <li>Yearly Performance Trends: Observed a steady increase in sales and profits, suggesting healthy business growth.</li>
-        <li>Shipping Dynamics: Identified potential correlations between shipping dates and quantity, offering opportunities for optimizing shipping strategies.</li>
-        <li>Regional Strategies: Noted varying performances across regions, suggesting the need for tailored marketing and operational approaches.</li>
-        <li>Category and Segment Analysis: Uncovered insights into category-wise performance and price sensitivity among different customer segments.</li>
-    </ul>
-
-    <h2>Future Directions:</h2>
-    <ul>
-        <li>Implement predictive models leveraging regression to forecast sales and profits based on historical data.</li>
-        <li>Further analyze the impact of discounts on profitability and customer behavior.</li>
-        <li>Explore customer segmentation strategies for targeted marketing initiatives.</li>
-    </ul>
+    <h3>Business Insights and Recommendations:</h3>
+    <h3>Yearly Performance Trends: </h3>Observed a steady increase in sales and profits, suggesting healthy business growth.
+    <h3>Shipping Dynamics:</h3> Identified potential correlations between shipping dates and quantity, offering opportunities for optimizing shipping strategies.
+    <h3>Regional Strategies:</h3> Noted varying performances across regions, suggesting the need for tailored marketing and operational approaches.
+    <h3>Category and Segment Analysis:</h3> Uncovered insights into category-wise performance and price sensitivity among different customer segments.
+    <h3>Future Directions:</h3>
+    <h3></h3>Implement predictive models leveraging regression to forecast sales and profits based on historical data.
+    <h3></h3>Further analyze the impact of discounts on profitability and customer behavior.
+    <h3></h3>Explore customer segmentation strategies for targeted marketing initiatives.
      <!-- ... -->
       <!-- Image slider -->
       <div class="slideshow-container">
