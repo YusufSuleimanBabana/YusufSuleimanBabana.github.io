@@ -391,6 +391,52 @@
     <p>This project serves as a comprehensive exploration of the Superstore's sales and profit dynamics, offering actionable insights crucial for informed decision-making and strategic planning.
     </p>
   </li>
+  <li>
+    <h4 onclick="toggleDropdown('project7')">Web Scraping: ITF Compliance Data Extraction</h4>
+    <div id="project7" class="dropdown">
+        <p>
+            <h3>Introduction:</h3>
+            This project involves the extraction of compliance data from the ITF (Industrial Training Fund) website. Using Selenium and Pandas in Python, the data is systematically scraped from multiple pages of the website and consolidated into a single Excel file. The final dataset is then uploaded to Google Drive for easy access and sharing.
+        </p>
+        <p>
+            <h3>Objective:</h3>
+            The primary objective of this project is to automate the extraction of data from a multi-page website, consolidate it into a structured format, and upload it to Google Drive. This demonstrates proficiency in web scraping, data handling, and cloud integration.
+        </p>
+        <p>
+            <h3>Methodology:</h3>
+            <h4>Setup Selenium WebDriver:</h4>
+            Configure Chrome options to run in headless mode and initialize the WebDriver.
+            <h4>Data Extraction:</h4>
+            Loop through each page of the website, load the webpage, extract the HTML content of the table, and read it into a DataFrame.
+            <h4>Data Consolidation:</h4>
+            Concatenate all DataFrames into a single DataFrame for comprehensive analysis.
+            <h4>Export to Excel:</h4>
+            Export the final DataFrame to an Excel file named `itf_compliance_data_final.xlsx`.
+            <h4>Upload to Google Drive:</h4>
+            Authenticate and create a Google Drive API client, then upload the Excel file to Google Drive.
+        </p>
+        <p>
+            <h3>Results:</h3>
+            The project successfully automated the extraction of data from 2830 pages of the ITF website. The consolidated data was exported to an Excel file and uploaded to Google Drive. This process showcases the effective use of Selenium for web scraping and Pandas for data manipulation.
+        </p>
+        <p>
+            <h3>Significance and Impact:</h3>
+            This project demonstrates the potential of web scraping to automate data collection tasks, saving time and reducing manual effort. By consolidating the data into a structured format, it facilitates further analysis and insights generation.
+        </p>
+        <p>
+            <h3>Conclusion:</h3>
+            The project successfully showcased the use of Selenium and Pandas for web scraping and data consolidation. The integration with Google Drive highlights the ability to handle large datasets and make them easily accessible.
+        </p>
+        <p>
+            <h3>Future Directions:</h3>
+            Future work could involve enhancing the scraping script to handle dynamic content, exploring additional data points, and integrating with other data analysis tools for more advanced insights.
+        </p>
+        <p>
+            <a href="https://colab.research.google.com/drive/1viT4waqJTy2Q_tnqwQr0SVWBiBucNV27?usp=sharing">Code</a>
+        </p>
+    </div>
+</li>
+
     <li>
       <h4 onclick="toggleDropdown('project6')">Power Bi- Financial Analysis on Public Listed Companies in Nigeria</h4>
       <div id="project6" class="dropdown">
