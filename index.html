@@ -1,468 +1,485 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yusuf Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yusuf Suleiman Babana | Data Scientist</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Reset some default styles */
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
+    :root{
+      --bg: #0b0f19;
+      --panel: rgba(255,255,255,.06);
+      --panel-2: rgba(255,255,255,.09);
+      --text: rgba(255,255,255,.9);
+      --muted: rgba(255,255,255,.68);
+      --line: rgba(255,255,255,.14);
+      --accent: #7c5cff;
+      --accent-2:#23c4ff;
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1100px;
     }
 
-    /* Header Styles */
-    header {
-      background-color: #1a1a1a;
-      color: white;
-      padding: 40px 20px;
-    
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(124,92,255,.30), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(35,196,255,.22), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    .container{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    /* Top Nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 15, 25, .55);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .brand .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 6px rgba(124,92,255,.12);
+    }
+
+    .nav-links{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .nav-links a{
+      padding: 10px 10px;
+      border-radius: 10px;
+      transition: .2s ease;
+    }
+    .nav-links a:hover{
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+    }
+
+    .cta{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 600;
+      cursor: pointer;
+      transition: .2s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); }
+    .btn.primary{
+      border: none;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #081018;
+      box-shadow: 0 14px 35px rgba(124,92,255,.22);
+    }
+
+    .hamburger{
+      display:none;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 54px 0 28px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+    .hero-card{
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 200px at 20% 0%, rgba(124,92,255,.22), transparent 55%),
+                  radial-gradient(600px 200px at 90% 10%, rgba(35,196,255,.18), transparent 55%);
+      pointer-events:none;
+      opacity: .9;
+    }
+    .hero-card > *{ position: relative; z-index: 1; }
+
+    .kicker{
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+      width: fit-content;
+    }
+    .kicker span{
+      color: #081018;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(32px, 4vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -0.8px;
+    }
+    .subtitle{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 60ch;
+    }
+    .chips{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 22px;
+    }
+    .chip{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .profile{
+      display:flex;
       flex-direction: column;
-      text-align: center;
+      gap: 14px;
     }
-
-    header h1 {
-      font-size: 2.5em;
+    .profile-top{
+      display:flex;
+      gap: 14px;
+      align-items:center;
+    }
+    .avatar{
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      object-fit: cover;
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    .profile h2{
+      font-size: 18px;
       margin: 0;
-      text-transform: uppercase;
+    }
+    .profile p{
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .stats{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .stat{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .stat strong{
+      display:block;
+      font-size: 18px;
+      letter-spacing: -0.3px;
+    }
+    .stat span{
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
     }
 
-    header p {
-      font-size: 1.2em;
+    /* Sections */
+    section{
+      padding: 24px 0;
+    }
+    .section-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap: 14px;
+      margin: 18px 0 14px;
+    }
+    .section-title h3{
       margin: 0;
-      opacity: 0.8;
+      font-size: 22px;
+      letter-spacing: -0.3px;
+    }
+    .section-title p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 60ch;
     }
 
-    /* Menu Styles */
-    ul.menu {
-      background-color: #1a1a1a;
-      padding: 10px 0;
-      text-align: center;
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .card{
+      grid-column: span 6;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+    }
+    .card h4{
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    ul.menu li {
-      display: inline;
-      margin-right: 20px;
+    /* Projects (Accordion) */
+    .projects{ display:flex; flex-direction: column; gap: 12px; }
+    details.project{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      overflow:hidden;
     }
-
-    ul.menu li a {
-      text-decoration: none;
-      color: white;
-      font-size: 1.2em;
-      transition: color 0.3s;
-    }
-
-    ul.menu li a:hover {
-      color: #3498db; /* Change the color on hover */
-    }
-
-     /* Add style for the image */
-     img.profile-pic {
-      position: absolute;
-      top: 40px;
-      left: 40px;
-      width: 120px; /* Adjust the width as needed */
-      height: auto;
-      border: 2px solid #333;
-      border-radius: 50%;
-    }
-
-    /* Section Styles */
-    section {
-      padding: 40px;
-      margin: 20px 0;
-      background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    section h2 {
-      font-size: 2.5em;
-      margin-top: 0;
-      color: #1a1a1a;
-    }
-
-    section p {
-      font-size: 1.4em;
-      color: #333;
-    }
-
-    /* Projects List Styles */
-    section#projects ul {
+    details.project summary{
       list-style: none;
-      padding: 0;
+      cursor: pointer;
+      padding: 16px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      user-select:none;
+    }
+    details.project summary::-webkit-details-marker{ display:none; }
+    .proj-title{
+      display:flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .proj-title strong{ font-size: 16px; }
+    .proj-title span{ color: var(--muted); font-size: 13px; font-weight: 600; }
+    .chev{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(255,255,255,.05);
+      transition: .2s ease;
+    }
+    details[open] .chev{ transform: rotate(180deg); }
+    .proj-body{
+      padding: 0 18px 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .proj-body .row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .proj-body a.link{
+      color: #081018;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .proj-body .sub{
+      margin: 10px 0 0;
+    }
+    .proj-body ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+    .proj-body li{ margin: 6px 0; }
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .contact .card{ grid-column: auto; }
+    .contact-list{
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .contact-item{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      align-items:center;
+    }
+    .contact-item span{ color: var(--muted); font-weight: 600; font-size: 13px; }
+
+    footer{
+      padding: 26px 0 40px;
+      color: var(--muted);
+      text-align:center;
+      border-top: 1px solid var(--line);
+      margin-top: 26px;
     }
 
-    section#projects li {
-      margin-bottom: 30px;
-      border: 1px solid #ddd;
-      padding: 20px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Mobile */
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .card{ grid-column: span 12; }
+      .contact{ grid-template-columns: 1fr; }
     }
-
-    /* Contact Styles */
-    section#contact a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1em;
-    }
-
-    section#contact a {
-      color: #060606;
-      text-decoration: none;
-      font-size: 1em;
-    }
-
-    /* Footer Styles */
-    footer {
-      background-color: #1a1a1a;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.5em;
+    @media (max-width: 720px){
+      .nav-links{ display:none; }
+      .hamburger{ display:inline-flex; align-items:center; justify-content:center; }
+      .mobile-menu{
+        display:none;
+        border-top: 1px solid var(--line);
+        padding: 10px 0 16px;
       }
-      header p {
-        font-size: 1.2em;
+      .mobile-menu a{
+        display:block;
+        padding: 12px 6px;
+        color: var(--muted);
+        font-weight: 600;
       }
-      ul.menu li a { 
-        font-size: 1.2em;
-      }
-      img.profile-pic {
-        width: 120px;
-        height: 120px;
-      }
-    }
-    /* Style for dropdown */
-    .dropdown {
-      display: none;
-  position: relative; /* Set it to relative or absolute based on your layout */
-  top: 10px; /* Adjust the distance from the title */
-  left: 0; /* Adjust the horizontal positioning */
-  width: 100%; /* Adjust the width if needed */
-  padding: 10px; /* Add padding to create separation */
-  background-color: #fff; /* Background color for the dropdown */
-  border: 1px solid #ddd; /* Border to outline the dropdown */
-  border-radius: 5px; /* Rounded corners for a nicer look */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+      .mobile-menu a:hover{ color: var(--text); }
     }
   </style>
-  <!-- JavaScript function for toggling dropdown visibility -->
-  <script>
-    function toggleDropdown(id) {
-      var dropdown = document.getElementById(id);
-      if (dropdown.style.display === "none" || dropdown.style.display === "") {
-        dropdown.style.display = "block";
-      } else {
-        dropdown.style.display = "none";
-      }
 
-      // Hide other dropdowns
-      var dropdowns = document.querySelectorAll('.dropdown');
-      for (var i = 0; i < dropdowns.length; i++) {
-        if (dropdowns[i].id !== id) {
-          dropdowns[i].style.display = 'none';
-        }
-      }
+  <script>
+    function toggleMobileMenu(){
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+    // Close mobile menu when a link is clicked
+    function closeMobileMenu(){
+      const menu = document.getElementById("mobileMenu");
+      if(menu) menu.style.display = "none";
     }
   </script>
 </head>
+
 <body>
-  <!-- Header -->
-  <header>
-    <img class="profile-pic" src="babana.jpg" alt="your-profile-image">
-    <h1>YUSUF SULEIMAN BABANA</h1>
-    <p>DATA SCIENTIST & ANALYST</p>
-  </header>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="dot"></div>
+          <div>Yusuf Babana</div>
+        </div>
 
-  <!-- Menu -->
-  <ul class="menu">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#certificates">Certificates</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <!-- Home Section -->
-  <section id="home">
-    <h2>Welcome to My Data Universe!🌌</h2>
-  </section>
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p><h4>Welcome to My Data Odyssey! 🚀</h4>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#certificates">Certificates</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-      Hey there! 👋 I'm Yusuf Suleiman Babana, an enthusiastic Data Scientist and Analyst passionate about unraveling insights from complex data landscapes to drive informed decision-making and foster innovation.</p>
-  
-      <h4>Unveiling Data Stories 📊</h4>
-      My journey began with a passion for statistics that evolved into a career exploring the intricate world of data. From delving into ESG and financial data at Independent Project Monitoring Company to fine-tuning customer address accuracy at Polaris Digitech, I've honed my skills in collecting, analyzing, and interpreting data that matters. I thrive on transforming raw information into actionable insights, leveraging statistical methods and machine learning techniques.</p>
-  
-      <h4>Navigating the Data Universe 🚀</h4>
-      An alchemist with tools like Python, R, Excel, and more, I craft stories out of numbers, unraveling patterns, and unveiling trends that guide sustainable decisions. Armed with a BSc in Statistics from the University of Ilorin and fortified by the Google Data Analytics Professional Certificate, I've woven a tapestry of skills in data visualization, statistical intuition, and database wizardry.</p>
-  
-      <h4>Beyond Numbers: Impact and Innovation 💡</h4>
-      Outside the realms of statistical codes and machine learning models, I've delved into immersive simulations at British Airways and KPMG AU, fathoming the depths of customer behavior analysis and analytics-driven decision-making.</p>
-  
-      <h4>Let's Connect and Innovate 🌐</h4>
-      I'm thrilled to connect with like-minded individuals and organizations, aiming to explore the uncharted territories of data science, contribute innovative solutions, and drive impact in the realms of energy efficiency, housing, and beyond.</p>
-      Let's embark on this exhilarating journey of transforming data into actionable insights and crafting a data-driven future together! </p>
-    </p>
-  </section>
+        <div class="cta">
+          <a class="btn" href="#projects">View Work</a>
+          <a class="btn primary" href="mailto:babanayusuff@gmail.com">Hire Me</a>
+          <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">☰</button>
+        </div>
+      </div>
 
-  <!-- Certificates Section -->
-  <section id="certificates">
-    <h1>Certificates</h1>
-    <p>
-      <a href="https://drive.google.com/drive/folders/11QIDFOl2P91csOkjJd585bD-tnbEI_xN?usp=drive_link">View</a>
-    </p>
-  </section>
-
- <!-- Projects Section -->
-<section id="projects">
-  <h1>Projects</h1>
-    <li>
-      <h4 onclick="toggleDropdown('project1')">Hypertension and Diabetes Prediction with Machine Learning</h4>
-      <div id="project1" class="dropdown">
-      <p>
-        <h1>Introduction:</h1>
-        The "Hypertension and Diabetes Prediction with Machine Learning" project focuses on leveraging machine learning models to predict the occurrence of hypertension and diabetes based on relevant patient health data. The project encompasses data exploration, model training, evaluation, and predictive analysis for both medical conditions.
-      </p>
-      <p>
-        <h1>Hypertension Analysis:</h1>
-        The initial phase involves analyzing data related to hypertension.
-        Data Cleaning Checking for missing values and filling them with the mean of respective columns.
-        <h1>Data Split:</h1> Division of the dataset into features and target variables.
-        <h1>Model Training:</h1>Employing multiple classification models like Logistic Regression, Decision Tree, Random Forest, SVM, and K-Nearest Neighbors (KNN) for predicting hypertension.
-        <h1>Model Evaluation:</h1> Comparing model accuracies and selecting the best-performing model for predicting hypertension.
-        The Random Forest model emerged as the most accurate (99.81%) for hypertension prediction. It demonstrated exceptional performance, accurately predicting both classes (presence and absence of hypertension) with high precision and recall.
-      </p>
-      <p>  
-        <h1>Hypertension Prediction for Hypothetical Data:</h1>
-        Using the trained Random Forest model, the project predicts the occurrence of hypertension for hypothetical health data, showcasing its predictive power for new observations.
-      </p>
-      <p>
-        <h1>Diabetes Analysis:</h1>
-        Moving onto the analysis for diabetes:
-      </p>
-      <p>
-        <h1>Data Preparation:</h1> Splitting the dataset into features and target variables for diabetes prediction.
-        <h1>Model Training:</h1> Training different classifiers, including Random Forest, Logistic Regression, Decision Tree, SVM, and KNN, for diabetes prediction.
-        <h1>Model Evaluation:</h1> Assessing model performances, comparing accuracies, and identifying the most effective model for diabetes prediction.
-        The Random Forest model demonstrated substantial accuracy in predicting diabetes, achieving an accuracy of 99.81%.
-      </p>    
-      <p>
-        <h1>Conclusion:</h1>
-        The project highlights the effectiveness of machine learning models in predicting both hypertension and diabetes based on patient health data. The Random Forest model emerged as the top performer for both medical conditions, showcasing its strength in accurately predicting instances of both diseases. The high precision, recall, and F1-score values affirm the robustness and reliability of these models in healthcare predictions.
-     <p>
-     </p>
-        <h1>Future Scope:</h1>
-        Future iterations could involve fine-tuning model parameters, exploring additional features or datasets, or implementing ensemble methods to further enhance prediction accuracy and robustness</p>
-      </p>
-      <p>
-        <a href="https://colab.research.google.com/drive/1HTVxqlLGp94KGlMMkuBPTtq8zGkg0VCT?usp=sharing">Code</a>
-      </p>
-    </div>
-      </li>
-    <li>
-      <h4 onclick="toggleDropdown('project2')">Medical Insurance Prediction using MACHINE LEARNING</h4>
-      <div id="project2" class="dropdown">
-      <p>
-      </h3><p><h3>Introduction:</h3> The "Predictive Modeling for Health Insurance Charges" project focuses on utilizing machine learning techniques to predict medical charges for health insurance purposes. This project explores the development and comparison of predictive models to estimate individual medical expenses based on various customer attributes. The project aims to enhance efficiency and profitability for health insurance companies by leveraging advanced data analysis and predictive modeling techniques.
-      </p>
-      <p>
-      </h3><p><h3>Objective:</h3> The primary objective of this project is to build and evaluate machine learning models capable of accurately predicting individual medical charges for health insurance based on demographic, lifestyle, and medical data. The project seeks to improve predictive accuracy, compare model performance, and demonstrate the potential benefits for health insurance companies.
-      </p>
-      <p>
-      <h3>Methodology:</h3> Data Exploration and Preprocessing: The project begins with exploring a comprehensive dataset containing information about individuals' age, gender, BMI, number of children, smoking habits, and region.
-      <h3>Model Development:</h3> Two distinct machine learning models were developed and evaluated:
-      <h3>Linear Regression Model:</h3> An initial model utilizing linear regression was trained to predict medical charges based on the provided features.
-      <h3>Random Forest Model:</h3> Following the linear regression, a more complex Random Forest model was implemented to compare predictive performance.
-      <h3>Model Evaluation:</h3> The models' performance was evaluated using metrics such as Mean Squared Error (MSE) and R-squared to measure predictive accuracy and variance explained by the models.
-      </p>
-      <p>
-      </h3><p><h3>Results:</h3> The project yielded the following key outcomes:The Linear Regression model exhibited a Mean Squared Error (MSE) of approximately 33.6 million and an R-squared value of 0.784.
-        Subsequently, the Random Forest model showed a considerable improvement with an MSE of around 20.9 million and an R-squared value of 0.866, signifying enhanced predictive accuracy and variance explanation.
-      </p>
-      <p>
-      </h3><p><h3>Predictive Use Case:</h3>
-        An illustrative example was presented using the trained Random Forest model to predict medical charges for a hypothetical individual based on their demographic and lifestyle attributes.
-      </p>
-      <p>
-      </h3><p><h3>Significance and Impact:</h3>
-        The project demonstrates the significant potential of machine learning in the health insurance sector. By accurately predicting medical charges, these models assist insurance companies in risk assessment, fraud detection, personalized customer service, and more, ultimately enhancing operational efficiency and profitability.
-      </p>
-      <p>
-      </h3><p><h3>Conclusion:</h3>
-        The utilization of machine learning models, especially the Random Forest algorithm, showcases a substantial improvement in predictive accuracy for estimating medical charges in the health insurance domain. This project provides a demonstration of the potential advantages for insurance companies in adopting advanced predictive analytics.
-      </p>
-      <p>
-      </h3><p><h3>Future Directions:</h3>
-        Future work may involve expanding the dataset, exploring additional machine learning algorithms, and focusing on feature engineering to further improve model performance and address specific challenges in the health insurance domain
-      </p>
-      <p>
-        <a href="https://colab.research.google.com/drive/1ViSUZrONzZ7vOeKyWn3zPKRPvdF2mAY6?usp=sharing">Code</a>
-      </p>
-    </li>
-    <li>
-      <h4 onclick="toggleDropdown('project3')">HR Employee Attrition Analysis and Visualization</h4>
-      <div id="project3" class="dropdown">
-    <h3>Introduction:</h3> The "HR Employee Attrition Analysis and Visualization" project delves into understanding and visualizing employee attrition data within an HR dataset. This project aims to explore the factors and characteristics influencing attrition rates among employees
-    <h3>Objective:</h3> The primary goal of this project is to conduct an in-depth analysis of employee attrition by utilizing data visualization techniques to gain insights into the distribution and relationships of various factors such as age, job roles, marital status, department, education field, and more. The analysis aims to identify potential patterns or correlations that might contribute to attrition within the organization.
-    <h3>Methodology:</h3> The project begins with loading an HR dataset and performing initial data exploration and cleaning tasks. It includes:
-    Removing redundant columns such as 'EmployeeCount' and 'StandardHours'. Renaming columns for clarity and consistency. Addressing duplicates and missing values in the dataset. Following data preparation, the project employs visualizations using Matplotlib and Seaborn to explore various facets of employee data, including age distribution, overtime work, marital status, job roles, gender diversity, education field distribution, departmental diversity, and business travel frequency.
-    <h3>Key Observations:</h3><h3>Overtime and Age Relationship:</h3> Visualizing the relationship between overtime work and age to understand potential age-related trends in overtime activities. Marital Status Diversity: Analyzing the distribution of employees across different marital statuses. 
-    <h3>Job Role and Department Distribution:</h3> Investigating the distribution of employees across various job roles and departments. <h3>Gender Diversity:</h3> Understanding the gender distribution within the organization. <h3>Education Field Spread:</h3> Exploring the diversity in educational backgrounds among employees.
-    <h3>Business Travel Frequency:</h3>Visualizing the frequency of business travel among employees. <h3>Significance and Impact:</h3> The analysis of employee attrition and associated factors is crucial for organizations. Understanding these factors could help in:
-      Identifying patterns or characteristics that might contribute to employee attrition. Creating targeted retention strategies to address potential areas of concern. Improving organizational practices or policies to enhance employee satisfaction and reduce attrition rates.
-    <h3>Conclusion:</h3> This project's visual analysis provides an overview of various factors related to employee attrition within an organization. The insights gained from this analysis could be further utilized to develop strategies for employee retention and organizational enhancement.
-<p>
-  <a href="https://colab.research.google.com/drive/11IJpFowy3a31dI6lUtaFN--PFdth7EjP?usp=drive_link">Code</a>
-</p>
-  </li>
-  <li>
-    <h4 onclick="toggleDropdown('project4')">Healthcare Analytics Dashboard</h4>
-      <div id="project4" class="dropdown">
-    <h3>Overview:</h3>
-    The Healthcare Analytics Dashboard is a comprehensive visualization tool developed using Power BI, designed to analyze and interpret critical insights from a diverse healthcare dataset. This project aims to provide a clear, concise, and insightful representation of patient demographics, medical conditions, billing trends, and hospital metrics.</p>
-
-    <h4>Dashboard Contents:</h4>
-
-    <h4>Summary Page:</h4>
-      Total count of patients, doctors, hospitals, and insurance providers for an overarching view of the dataset.
-      Aggregate billing amount and average length of stay metrics for effective financial and operational analysis.
-      Stacked column chart showcasing days stayed by gender, offering insights into gender-based medical requirements.
-      Stacked area chart depicting patient admission and discharge trends over months for strategic resource planning.
-      Donut charts illustrating average billing by age group and distribution of gender and medical conditions across age groups.
-
-    <h4>Patient Page:</h4>
-      Funnel visualization presenting billing amounts categorized by medical condition, aiding in understanding cost distribution.
-      Bar chart displaying billing amounts across different insurance companies for financial assessment and partnerships.
-      Detailed patient demographics including name, gender, age group, blood type, medical condition, medication, days stayed, billing amount, insurance provider, and test results.
-      Donut chart highlighting medical conditions by medication for treatment analysis.
-      Clustered column chart depicting medical conditions by gender for demographic-specific insights.
-      Interactive slicers for filtering by admission type, years, months, and test results for precise data exploration.
-    <h4>Significance of the Project:</h4>
-    The Healthcare Analytics Dashboard serves as a powerful tool for healthcare professionals, administrators, and analysts to derive actionable insights. It facilitates data-driven decision-making, aids in resource allocation, identifies trends in medical conditions, and enhances financial planning through comprehensive visualization and interactive exploration of the dataset.
-    <h4>Impact and Future Scope:</h4>
-    This project lays the foundation for data-driven strategies in healthcare management. Future enhancements could involve predictive analytics for patient outcomes, real-time data integration for dynamic insights, and machine learning models for prognosis and diagnosis support.
-    <h4>Conclusion:</h4>
-    The Power BI Dashboard on the healthcare dataset offers a comprehensive and intuitive interface to explore, analyze, and derive valuable insights, empowering healthcare stakeholders to make informed decisions and optimize operations effectively.
-   <iframe title="Report Section" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNTI0MTRjZDItYWI2NS00ZWU5LTg1YWUtZjY3YjNlZDA0NDk5IiwidCI6Ijc1YzFiNjdkLTI5YjAtNDM1My1iNzFkLTI2MjAyZDQ0NWY2YiJ9" frameborder="0" allowFullScreen="true"></iframe>
-      </script>
-      <p>This project serves as a comprehensive exploration of Medical and Patient data, offering actionable insights crucial for informed decision-making and strategic planning.
-      </p>
-  </li>
-    <li>
-      <h4 onclick="toggleDropdown('project5')">Power Bi- Exploring Superstore Sales and Profit Dynamics</h4>
-      <div id="project5" class="dropdown">
-    <h3>Overview:</h3> In this project, I delved into an in-depth analysis of a Superstore Giant's dataset to unravel critical insights for strategic decision-making. The dataset encompassed various dimensions, including customer details, product information, sales, and profit-related metrics.
-    <h3>Key Visualizations and Insights:</h3>
-    <h3>Overview:</h3>
-    <h3>Sales, Profit, and Quantity Trends: </h3>Explored over years to identify growth patterns and fluctuations.
-    <h3>Ship Date Analysis:</h3> Analyzed quantity trends concerning shipping dates to understand demand dynamics.
-    <h3>Discounts across Regions:</h3> Examined the impact of discounts on sales across different regions.
-    <h3>Category Insights by Ship Date:</h3> Explored how product categories perform concerning shipment timelines.
-    <h3>Price Variances by Customer Segments:</h3> Investigated pricing dynamics concerning different customer segments.
-    <h3>Region Tab:</h3>
-    <h4>Sales Distribution across States:</h4> Visualized sales distribution across different states.
-    <h4>Quantity Analysis by Region:</h4> Explored quantity trends and regional preferences.
-    <h4>Profit Variations across Regions:</h4> Identified profit dynamics concerning different regions.
-    <h4>Matrix Table:</h4> Provided a comprehensive overview of sales, profit, and quantity metrics across states.
-
-    <h3>Business Insights and Recommendations:</h3>
-    <h3>Yearly Performance Trends: </h3>Observed a steady increase in sales and profits, suggesting healthy business growth.
-    <h3>Shipping Dynamics:</h3> Identified potential correlations between shipping dates and quantity, offering opportunities for optimizing shipping strategies.
-    <h3>Regional Strategies:</h3> Noted varying performances across regions, suggesting the need for tailored marketing and operational approaches.
-    <h3>Category and Segment Analysis:</h3> Uncovered insights into category-wise performance and price sensitivity among different customer segments.
-    <h3>Future Directions:</h3>
-    <h3></h3>Implement predictive models leveraging regression to forecast sales and profits based on historical data.
-    <h3></h3>Further analyze the impact of discounts on profitability and customer behavior.
-    <h3></h3>Explore customer segmentation strategies for targeted marketing initiatives.
-     <iframe title="Report Section" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiOGJlMGYxYzMtMzIzNC00OGJjLThiNDctYzgxOGU4ZGNkN2M1IiwidCI6Ijc1YzFiNjdkLTI5YjAtNDM1My1iNzFkLTI2MjAyZDQ0NWY2YiJ9" frameborder="0" allowFullScreen="true"></iframe>
-      </script>
-
-    <p>This project serves as a comprehensive exploration of the Superstore's sales and profit dynamics, offering actionable insights crucial for informed decision-making and strategic planning.
-    </p>
-  </li>
-  <li>
-    <h4 onclick="toggleDropdown('project7')">Web Scraping: ITF Compliance Data Extraction</h4>
-    <div id="project7" class="dropdown">
-        <p>
-            <h3>Introduction:</h3>
-            This project involves the extraction of compliance data from the ITF (Industrial Training Fund) website. Using Selenium and Pandas in Python, the data is systematically scraped from multiple pages of the website and consolidated into a single Excel file. The final dataset is then uploaded to Google Drive for easy access and sharing.
-        </p>
-        <p>
-            <h3>Objective:</h3>
-            The primary objective of this project is to automate the extraction of data from a multi-page website, consolidate it into a structured format, and upload it to Google Drive. This demonstrates proficiency in web scraping, data handling, and cloud integration.
-        </p>
-        <p>
-            <h3>Methodology:</h3>
-            <h4>Setup Selenium WebDriver:</h4>
-            Configure Chrome options to run in headless mode and initialize the WebDriver.
-            <h4>Data Extraction:</h4>
-            Loop through each page of the website, load the webpage, extract the HTML content of the table, and read it into a DataFrame.
-            <h4>Data Consolidation:</h4>
-            Concatenate all DataFrames into a single DataFrame for comprehensive analysis.
-            <h4>Export to Excel:</h4>
-            Export the final DataFrame to an Excel file named `itf_compliance_data_final.xlsx`.
-            <h4>Upload to Google Drive:</h4>
-            Authenticate and create a Google Drive API client, then upload the Excel file to Google Drive.
-        </p>
-        <p>
-            <h3>Results:</h3>
-            The project successfully automated the extraction of data from 2830 pages of the ITF website. The consolidated data was exported to an Excel file and uploaded to Google Drive. This process showcases the effective use of Selenium for web scraping and Pandas for data manipulation.
-        </p>
-        <p>
-            <h3>Significance and Impact:</h3>
-            This project demonstrates the potential of web scraping to automate data collection tasks, saving time and reducing manual effort. By consolidating the data into a structured format, it facilitates further analysis and insights generation.
-        </p>
-        <p>
-            <h3>Conclusion:</h3>
-            The project successfully showcased the use of Selenium and Pandas for web scraping and data consolidation. The integration with Google Drive highlights the ability to handle large datasets and make them easily accessible.
-        </p>
-        <p>
-            <h3>Future Directions:</h3>
-            Future work could involve enhancing the scraping script to handle dynamic content, exploring additional data points, and integrating with other data analysis tools for more advanced insights.
-        </p>
-        <p>
-            <a href="https://colab.research.google.com/drive/1viT4waqJTy2Q_tnqwQr0SVWBiBucNV27?usp=sharing">Code</a>
-        </p>
-    </div>
-</li>
-
-    <li>
-      <h4 onclick="toggleDropdown('project6')">Power Bi- Financial Analysis on Public Listed Companies in Nigeria</h4>
-      <div id="project6" class="dropdown">
-    <h3>This project is a recent dashboard development initiative undertaken at my current company. While I can't share the intricacies of the project due to confidentiality constraints, I'm pleased to inform you that I've added a link to the front-end representation of the dashboard on our company's website</h3>
-    <h3>You can access the dashboard via this link:<p>
-  <iframe title="FINANCIAL ANALYSIS PROJECT" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiOTA2YTliZmQtNDBkZS00MGZhLWJlODItZmY1NDE0MGFlYzg5IiwidCI6Ijc1YzFiNjdkLTI5YjAtNDM1My1iNzFkLTI2MjAyZDQ0NWY2YiJ9&pageName=ReportSection33c0cd870de58eb24499" frameborder="0" allowFullScreen="true"></iframe>
-</p>
-    <h3>Please note that while the link will direct you to the company's website, I'm only able to display the front-end interface of the dashboard without discussing specific project details. Nevertheless, I believe this addition provides a glimpse into the type of work I'm involved in and showcases my expertise in data visualization and dashboard development.
-Thank you for your understanding, and I hope you find this addition valuable in gaining insights into my professional capabilities.
-      </script>
-  </li>
-</ul>
-</section>
-
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h3>Contact</h3>
-    <p><a href="mailto:babanayusuff@gmail.com">Gmail</a></p>
-    <p><a href="https://www.linkedin.com/in/yusuf-suleiman-5850b2220">Linkedin</a></p>
-    <p>Mobile: +2348034054358</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2023 Yusuf Suleiman Babana. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="mobile-menu">
+        <a href="#about" onclick="closeMobileMenu()">About</a>
+        <a href="#skills" onclick="closeMobileMenu()">Skills</a>
+        <a href="#certificates" onclick="closeMobileMenu()">Certificates</a>
+        <a href="#projects" onclick="closeMobileMenu()">Projects</a>
+        <a href="#contact" onclick="
