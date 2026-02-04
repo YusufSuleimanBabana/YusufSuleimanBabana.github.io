@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yusuf Suleiman Babana | Data Scientist</title>
+  <title>Yusuf Portfolio</title>
 
-  <!-- Google Font -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg: #0b0f19;
-      --panel: rgba(255,255,255,.06);
-      --panel-2: rgba(255,255,255,.09);
-      --text: rgba(255,255,255,.9);
+      --bg: #0b1020;
+      --card: rgba(255,255,255,.07);
+      --card2: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.68);
       --line: rgba(255,255,255,.14);
       --accent: #7c5cff;
-      --accent-2:#23c4ff;
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --accent2:#22c7ff;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
       --radius: 18px;
       --max: 1100px;
     }
@@ -29,33 +29,33 @@
     html{ scroll-behavior: smooth; }
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(124,92,255,.30), transparent 60%),
-        radial-gradient(900px 500px at 100% 0%, rgba(35,196,255,.22), transparent 55%),
-        var(--bg);
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(34,199,255,.22), transparent 55%),
+        var(--bg);
       line-height: 1.6;
     }
 
     a{ color: inherit; text-decoration: none; }
     .container{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
 
-    /* Top Nav */
+    /* NAV */
     .nav{
       position: sticky;
       top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(12px);
-      background: rgba(11, 15, 25, .55);
+      z-index: 999;
+      backdrop-filter: blur(14px);
+      background: rgba(11, 16, 32, .55);
       border-bottom: 1px solid var(--line);
     }
     .nav-inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
+      gap: 14px;
       padding: 14px 0;
-      gap: 16px;
     }
     .brand{
       display:flex;
@@ -63,36 +63,28 @@
       gap: 12px;
       font-weight: 700;
       letter-spacing: .2px;
+      white-space: nowrap;
     }
     .brand .dot{
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      width: 10px; height: 10px; border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       box-shadow: 0 0 0 6px rgba(124,92,255,.12);
     }
-
     .nav-links{
       display:flex;
       gap: 18px;
       align-items:center;
-      font-weight: 500;
       color: var(--muted);
+      font-weight: 500;
     }
     .nav-links a{
       padding: 10px 10px;
-      border-radius: 10px;
+      border-radius: 12px;
       transition: .2s ease;
     }
     .nav-links a:hover{
       background: rgba(255,255,255,.06);
       color: var(--text);
-    }
-
-    .cta{
-      display:flex;
-      gap: 10px;
-      align-items:center;
     }
 
     .btn{
@@ -110,12 +102,12 @@
       transition: .2s ease;
       white-space: nowrap;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
     .btn.primary{
       border: none;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       color: #081018;
-      box-shadow: 0 14px 35px rgba(124,92,255,.22);
+      box-shadow: 0 16px 40px rgba(124,92,255,.22);
     }
 
     .hamburger{
@@ -129,40 +121,51 @@
       cursor: pointer;
     }
 
-    /* Hero */
-    .hero{
-      padding: 54px 0 28px;
+    .mobile-menu{
+      display:none;
+      border-top: 1px solid var(--line);
+      padding: 10px 0 16px;
     }
+    .mobile-menu a{
+      display:block;
+      padding: 12px 6px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .mobile-menu a:hover{ color: var(--text); }
+
+    /* HERO */
+    header.hero{ padding: 56px 0 24px; }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.25fr .75fr;
-      gap: 26px;
+      gap: 18px;
       align-items: stretch;
     }
-    .hero-card{
+    .panel{
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 26px;
-      overflow: hidden;
+      padding: 22px;
       position: relative;
+      overflow: hidden;
     }
-    .hero-card::after{
+    .panel::after{
       content:"";
       position:absolute;
       inset:-2px;
-      background: radial-gradient(600px 200px at 20% 0%, rgba(124,92,255,.22), transparent 55%),
-                  radial-gradient(600px 200px at 90% 10%, rgba(35,196,255,.18), transparent 55%);
+      background:
+        radial-gradient(600px 220px at 18% 0%, rgba(124,92,255,.20), transparent 58%),
+        radial-gradient(600px 220px at 90% 5%, rgba(34,199,255,.18), transparent 60%);
       pointer-events:none;
-      opacity: .9;
     }
-    .hero-card > *{ position: relative; z-index: 1; }
+    .panel > *{ position: relative; z-index: 1; }
 
-    .kicker{
+    .badge{
       display:inline-flex;
-      gap: 10px;
       align-items:center;
+      gap: 10px;
       padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid var(--line);
@@ -172,32 +175,27 @@
       font-size: 13px;
       width: fit-content;
     }
-    .kicker span{
+    .badge span{
       color: #081018;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       padding: 4px 8px;
       border-radius: 999px;
       font-size: 12px;
     }
 
     h1{
-      margin: 14px 0 10px;
-      font-size: clamp(32px, 4vw, 46px);
+      margin: 14px 0 8px;
+      font-size: clamp(30px, 4vw, 46px);
       line-height: 1.1;
       letter-spacing: -0.8px;
     }
     .subtitle{
-      margin: 0 0 18px;
+      margin: 0 0 16px;
       color: var(--muted);
-      font-size: 16px;
-      max-width: 60ch;
+      font-size: 15px;
+      max-width: 68ch;
     }
-    .chips{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 18px 0 22px;
-    }
+    .chips{ display:flex; flex-wrap:wrap; gap: 10px; margin: 16px 0 18px; }
     .chip{
       border: 1px solid var(--line);
       background: rgba(255,255,255,.05);
@@ -207,47 +205,32 @@
       font-weight: 600;
       font-size: 13px;
     }
+    .hero-actions{ display:flex; flex-wrap:wrap; gap: 12px; }
 
-    .hero-actions{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 6px;
-    }
-
-    .profile{
-      display:flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+    /* Profile card */
     .profile-top{
       display:flex;
-      gap: 14px;
       align-items:center;
+      gap: 14px;
     }
+    /* KEEP IMAGE LINK EXACTLY AS YOU HAVE IT */
     .avatar{
-      width: 72px;
-      height: 72px;
+      width: 78px;
+      height: 78px;
       border-radius: 20px;
       border: 1px solid var(--line);
       object-fit: cover;
       background: rgba(255,255,255,.06);
       box-shadow: 0 12px 30px rgba(0,0,0,.25);
     }
-    .profile h2{
-      font-size: 18px;
-      margin: 0;
-    }
-    .profile p{
-      margin: 3px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .profile-top h2{ margin:0; font-size: 18px; }
+    .profile-top p{ margin:4px 0 0; color: var(--muted); font-size: 14px; }
+
     .stats{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      margin-top: 4px;
+      margin-top: 14px;
     }
     .stat{
       border: 1px solid var(--line);
@@ -255,38 +238,28 @@
       border-radius: 14px;
       padding: 12px;
     }
-    .stat strong{
-      display:block;
-      font-size: 18px;
-      letter-spacing: -0.3px;
-    }
-    .stat span{
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-    }
+    .stat strong{ display:block; font-size: 18px; letter-spacing: -0.3px; }
+    .stat span{ color: var(--muted); font-size: 12.5px; font-weight: 600; }
 
-    /* Sections */
-    section{
-      padding: 24px 0;
-    }
+    /* SECTIONS */
+    section{ padding: 22px 0; }
     .section-title{
       display:flex;
-      justify-content:space-between;
       align-items:flex-end;
+      justify-content:space-between;
       gap: 14px;
-      margin: 18px 0 14px;
+      margin: 18px 0 12px;
     }
     .section-title h3{
-      margin: 0;
+      margin:0;
       font-size: 22px;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.4px;
     }
     .section-title p{
-      margin: 0;
+      margin:0;
       color: var(--muted);
-      font-size: 14px;
-      max-width: 60ch;
+      font-size: 13.5px;
+      max-width: 65ch;
     }
 
     .grid{
@@ -302,17 +275,10 @@
       padding: 18px;
       box-shadow: 0 12px 30px rgba(0,0,0,.22);
     }
-    .card h4{
-      margin: 0 0 8px;
-      font-size: 16px;
-    }
-    .card p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .card h4{ margin: 0 0 8px; font-size: 16px; }
+    .card p{ margin: 0; color: var(--muted); font-size: 14px; }
 
-    /* Projects (Accordion) */
+    /* PROJECTS (Accordion) */
     .projects{ display:flex; flex-direction: column; gap: 12px; }
     details.project{
       border: 1px solid var(--line);
@@ -331,39 +297,34 @@
       user-select:none;
     }
     details.project summary::-webkit-details-marker{ display:none; }
-    .proj-title{
-      display:flex;
-      flex-direction: column;
-      gap: 4px;
-    }
+
+    .proj-title{ display:flex; flex-direction:column; gap: 4px; }
     .proj-title strong{ font-size: 16px; }
     .proj-title span{ color: var(--muted); font-size: 13px; font-weight: 600; }
+
     .chev{
-      width: 34px;
-      height: 34px;
+      width: 36px; height: 36px;
       border-radius: 12px;
       border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
       display:flex;
       align-items:center;
       justify-content:center;
-      background: rgba(255,255,255,.05);
       transition: .2s ease;
     }
     details[open] .chev{ transform: rotate(180deg); }
+
     .proj-body{
       padding: 0 18px 18px;
       color: var(--muted);
       font-size: 14px;
     }
-    .proj-body .row{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .proj-body a.link{
+    .proj-body ul{ margin: 10px 0 0; padding-left: 18px; }
+    .proj-body li{ margin: 6px 0; }
+    .row{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .link{
       color: #081018;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
       padding: 10px 12px;
       border-radius: 12px;
       font-weight: 700;
@@ -371,16 +332,24 @@
       align-items:center;
       justify-content:center;
     }
-    .proj-body .sub{
-      margin: 10px 0 0;
-    }
-    .proj-body ul{
-      margin: 10px 0 0;
-      padding-left: 18px;
-    }
-    .proj-body li{ margin: 6px 0; }
 
-    /* Contact */
+    /* EMBEDS */
+    .embed{
+      width: 100%;
+      height: 420px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow:hidden;
+      background: rgba(255,255,255,.03);
+      margin-top: 12px;
+    }
+    .embed iframe{
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* CONTACT */
     .contact{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -388,12 +357,7 @@
       align-items: stretch;
     }
     .contact .card{ grid-column: auto; }
-    .contact-list{
-      display:flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
+    .contact-list{ display:flex; flex-direction: column; gap: 10px; margin-top: 10px; }
     .contact-item{
       border: 1px solid var(--line);
       background: rgba(255,255,255,.05);
@@ -414,7 +378,7 @@
       margin-top: 26px;
     }
 
-    /* Mobile */
+    /* RESPONSIVE */
     @media (max-width: 920px){
       .hero-grid{ grid-template-columns: 1fr; }
       .card{ grid-column: span 12; }
@@ -423,18 +387,6 @@
     @media (max-width: 720px){
       .nav-links{ display:none; }
       .hamburger{ display:inline-flex; align-items:center; justify-content:center; }
-      .mobile-menu{
-        display:none;
-        border-top: 1px solid var(--line);
-        padding: 10px 0 16px;
-      }
-      .mobile-menu a{
-        display:block;
-        padding: 12px 6px;
-        color: var(--muted);
-        font-weight: 600;
-      }
-      .mobile-menu a:hover{ color: var(--text); }
     }
   </style>
 
@@ -443,7 +395,6 @@
       const menu = document.getElementById("mobileMenu");
       menu.style.display = (menu.style.display === "block") ? "none" : "block";
     }
-    // Close mobile menu when a link is clicked
     function closeMobileMenu(){
       const menu = document.getElementById("mobileMenu");
       if(menu) menu.style.display = "none";
@@ -452,6 +403,7 @@
 </head>
 
 <body>
+
   <!-- NAV -->
   <div class="nav">
     <div class="container">
@@ -462,14 +414,14 @@
         </div>
 
         <nav class="nav-links">
+          <a href="#home">Home</a>
           <a href="#about">About</a>
-          <a href="#skills">Skills</a>
           <a href="#certificates">Certificates</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </nav>
 
-        <div class="cta">
+        <div style="display:flex; gap:10px; align-items:center;">
           <a class="btn" href="#projects">View Work</a>
           <a class="btn primary" href="mailto:babanayusuff@gmail.com">Hire Me</a>
           <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">☰</button>
@@ -478,8 +430,354 @@
 
       <!-- Mobile menu -->
       <div id="mobileMenu" class="mobile-menu">
+        <a href="#home" onclick="closeMobileMenu()">Home</a>
         <a href="#about" onclick="closeMobileMenu()">About</a>
-        <a href="#skills" onclick="closeMobileMenu()">Skills</a>
         <a href="#certificates" onclick="closeMobileMenu()">Certificates</a>
         <a href="#projects" onclick="closeMobileMenu()">Projects</a>
-        <a href="#contact" onclick="
+        <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="panel">
+          <div class="badge"><span>Open to roles</span> Data Scientist & Analyst</div>
+          <h1>Yusuf Suleiman Babana</h1>
+          <p class="subtitle">
+            I help teams make better decisions by transforming raw data into insights, dashboards, and machine learning models.
+          </p>
+
+          <div class="chips">
+            <div class="chip">Python</div>
+            <div class="chip">R</div>
+            <div class="chip">SQL</div>
+            <div class="chip">Excel</div>
+            <div class="chip">Power BI</div>
+            <div class="chip">Machine Learning</div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">See Projects</a>
+            <a class="btn" href="https://www.linkedin.com/in/yusuf-suleiman-5850b2220" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="mailto:babanayusuff@gmail.com">Email</a>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <div class="profile-top">
+            <!-- IMAGE LINK NOT CHANGED -->
+            <img class="avatar" src="babana.jpg" alt="your-profile-image" />
+            <div>
+              <h2 style="margin:0;">DATA SCIENTIST</h2>
+              <p style="margin:4px 0 0;">& ANALYST</p>
+            </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>7+</strong>
+              <span>Projects</span>
+            </div>
+            <div class="stat">
+              <strong>BI + ML</strong>
+              <span>Analytics Delivery</span>
+            </div>
+          </div>
+
+          <div style="margin-top:12px; color: var(--muted); font-size:14px;">
+            Quick links:
+            <div class="row" style="margin-top:10px;">
+              <a class="btn" href="https://drive.google.com/drive/folders/11QIDFOl2P91csOkjJd585bD-tnbEI_xN?usp=drive_link" target="_blank" rel="noreferrer">Certificates</a>
+              <a class="btn" href="#contact">Contact</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h3>About Me</h3>
+        <p>Welcome to my Data Odyssey — I turn data into stories and decisions.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Who I am</h4>
+          <p>
+            I’m Yusuf Suleiman Babana, an enthusiastic Data Scientist and Analyst passionate about extracting insights from complex datasets
+            to drive informed decision-making and innovation.
+          </p>
+        </div>
+        <div class="card">
+          <h4>What I’ve done</h4>
+          <p>
+            From ESG and financial analytics to improving data accuracy and building dashboards, I focus on delivering clear insights
+            using Python, R, Excel, SQL, and Power BI.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h4>What I’m looking for</h4>
+        <p>
+          I’m excited to collaborate with teams building data-driven solutions in healthcare, finance, energy efficiency, housing, and beyond.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="container">
+      <div class="section-title">
+        <h3>Certificates</h3>
+        <p>All my certifications are available via Google Drive.</p>
+      </div>
+
+      <div class="card">
+        <h4>Certificate Folder</h4>
+        <p style="margin-top:10px;">
+          <a class="btn primary" href="https://drive.google.com/drive/folders/11QIDFOl2P91csOkjJd585bD-tnbEI_xN?usp=drive_link" target="_blank" rel="noreferrer">
+            View Certificates
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h3>Projects</h3>
+        <p>Click any project to expand details. (Modern accordion style)</p>
+      </div>
+
+      <div class="projects">
+
+        <details class="project">
+          <summary>
+            <div class="proj-title">
+              <strong>Hypertension and Diabetes Prediction with Machine Learning</strong>
+              <span>Classification • Random Forest • Model Evaluation</span>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+          <div class="proj-body">
+            <p>
+              Built and compared multiple classification models (Logistic Regression, Decision Tree, Random Forest, SVM, KNN)
+              to predict hypertension and diabetes from health data. Random Forest performed best in your results.
+            </p>
+            <ul>
+              <li>Data cleaning and handling missing values</li>
+              <li>Training and comparing multiple ML classifiers</li>
+              <li>Prediction on new hypothetical observations</li>
+            </ul>
+            <div class="row">
+              <a class="link" href="https://colab.research.google.com/drive/1HTVxqlLGp94KGlMMkuBPTtq8zGkg0VCT?usp=sharing" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </div>
+        </details>
+
+        <details class="project">
+          <summary>
+            <div class="proj-title">
+              <strong>Medical Insurance Prediction using Machine Learning</strong>
+              <span>Regression • Random Forest vs Linear Regression</span>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+          <div class="proj-body">
+            <p>
+              Predictive modeling for health insurance charges using demographic and lifestyle attributes.
+              Random Forest improved performance compared to Linear Regression.
+            </p>
+            <ul>
+              <li>Metrics used: MSE and R²</li>
+              <li>Predictive use case on a hypothetical individual</li>
+            </ul>
+            <div class="row">
+              <a class="link" href="https://colab.research.google.com/drive/1ViSUZrONzZ7vOeKyWn3zPKRPvdF2mAY6?usp=sharing" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </div>
+        </details>
+
+        <details class="project">
+          <summary>
+            <div class="proj-title">
+              <strong>HR Employee Attrition Analysis and Visualization</strong>
+              <span>EDA • Matplotlib/Seaborn • Workforce Insights</span>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+          <div class="proj-body">
+            <p>
+              Visual analysis of HR attrition and related factors such as age, overtime, marital status, job roles,
+              departments, education field, and business travel frequency.
+            </p>
+            <div class="row">
+              <a class="link" href="https://colab.research.google.com/drive/11IJpFowy3a31dI6lUtaFN--PFdth7EjP?usp=drive_link" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </div>
+        </details>
+
+        <details class="project">
+          <summary>
+            <div class="proj-title">
+              <strong>Healthcare Analytics Dashboard</strong>
+              <span>Power BI • Patient & Billing Insights</span>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+          <div class="proj-body">
+            <p>
+              Power BI dashboard that visualizes patient demographics, medical conditions, billing trends,
+              admission/discharge patterns, and hospital metrics.
+            </p>
+
+            <div class="row">
+              <a class="link" href="https://app.powerbi.com/view?r=eyJrIjoiNTI0MTRjZDItYWI2NS00ZWU5LTg1YWUtZjY3YjNlZDA0NDk5IiwidCI6Ijc1YzFiNjdkLTI5YjAtNDM1My1iNzFkLTI2MjAyZDQ0NWY2YiJ9" target="_blank" rel="noreferrer">Open Dashboard</a>
+            </div>
+
+            <!-- Optional embed (kept, but styled) -->
+            <div class="embed">
+              <iframe title="Healthcare Dashboard" src="https://app.powerbi.com/view?r=eyJrIjoiNTI0MTRjZDItYWI2NS00ZWU5LTg1YWUtZjY3YjNlZDA0NDk5IiwidCI6Ijc1YzFiNjdkLTI5YjAtNDM1My1iNzFkLTI2MjAyZDQ0NWY2YiJ9" allowfullscreen="true"></iframe>
+            </div>
+          </div>
+        </details>
+
+        <details class="project">
+          <summary>
+            <div class="proj-title">
+              <strong>Power BI — Exploring Superstore Sales and Profit Dynamics</strong>
+              <span>Power BI • Sales/Profit Trends • Regional Insights</span>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+          <div class="proj-body">
+            <p>
+              Analyzed sales, profit, quantity, shipping dynamics, discount impact, and customer segments to generate actionable insights.
+            </p>
+
+            <div class="row">
+              <a class="link" href="https://app.powerbi.com/view?r=eyJrIjoiOGJlMGYxYzMtMzIzNC00OGJjLThiNDctYzgxOGU4ZGNkN2M1IiwidCI6Ijc1YzFiNjdkLTI5YjAtNDM1My1iNzFkLTI2MjAyZDQ0NWY2YiJ9" target="_blank" rel="noreferrer">Open Dashboard</a>
+            </div>
+
+            <div class="embed">
+              <iframe title="Superstore Dashboard" src="https://app.powerbi.com/view?r=eyJrIjoiOGJlMGYxYzMtMzIzNC00OGJjLThiNDctYzgxOGU4ZGNkN2M1IiwidCI6Ijc1YzFiNjdkLTI5YjAtNDM1My1iNzFkLTI2MjAyZDQ0NWY2YiJ9" allowfullscreen="true"></iframe>
+            </div>
+          </div>
+        </details>
+
+        <details class="project">
+          <summary>
+            <div class="proj-title">
+              <strong>Web Scraping: ITF Compliance Data Extraction</strong>
+              <span>Selenium • Pandas • Export to Excel • Drive Upload</span>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+          <div class="proj-body">
+            <p>
+              Automated extraction from 2830 pages of the ITF website using Selenium and Pandas, consolidated into Excel,
+              and uploaded to Google Drive.
+            </p>
+            <div class="row">
+              <a class="link" href="https://colab.research.google.com/drive/1viT4waqJTy2Q_tnqwQr0SVWBiBucNV27?usp=sharing" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </div>
+        </details>
+
+        <details class="project">
+          <summary>
+            <div class="proj-title">
+              <strong>Power BI — Financial Analysis on Public Listed Companies in Nigeria</strong>
+              <span>Company Dashboard • Front-end View Only</span>
+            </div>
+            <div class="chev">⌄</div>
+          </summary>
+          <div class="proj-body">
+            <p>
+              This dashboard was developed at my current company. Due to confidentiality, only the front-end dashboard view is shared.
+            </p>
+            <div class="row">
+              <a class="link" href="https://app.powerbi.com/view?r=eyJrIjoiOTA2YTliZmQtNDBkZS00MGZhLWJlODItZmY1NDE0MGFlYzg5IiwidCI6Ijc1YzFiNjdkLTI5YjAtNDM1My1iNzFkLTI2MjAyZDQ0NWY2YiJ9&pageName=ReportSection33c0cd870de58eb24499" target="_blank" rel="noreferrer">Open Dashboard</a>
+            </div>
+
+            <div class="embed">
+              <iframe title="Financial Analysis Dashboard" src="https://app.powerbi.com/view?r=eyJrIjoiOTA2YTliZmQtNDBkZS00MGZhLWJlODItZmY1NDE0MGFlYzg5IiwidCI6Ijc1YzFiNjdkLTI5YjAtNDM1My1iNzFkLTI2MjAyZDQ0NWY2YiJ9&pageName=ReportSection33c0cd870de58eb24499" allowfullscreen="true"></iframe>
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h3>Contact</h3>
+        <p>Let’s connect. Email is the fastest way to reach me.</p>
+      </div>
+
+      <div class="contact">
+        <div class="card">
+          <h4>Contact Details</h4>
+          <div class="contact-list">
+            <div class="contact-item">
+              <div>
+                <strong>Gmail</strong><br>
+                <span>babanayusuff@gmail.com</span>
+              </div>
+              <a class="btn primary" href="mailto:babanayusuff@gmail.com">Send</a>
+            </div>
+
+            <div class="contact-item">
+              <div>
+                <strong>LinkedIn</strong><br>
+                <span>yusuf-suleiman-5850b2220</span>
+              </div>
+              <a class="btn" href="https://www.linkedin.com/in/yusuf-suleiman-5850b2220" target="_blank" rel="noreferrer">Open</a>
+            </div>
+
+            <div class="contact-item">
+              <div>
+                <strong>Mobile</strong><br>
+                <span>+2348034054358</span>
+              </div>
+              <a class="btn" href="tel:+2348034054358">Call</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Quick Tip (GitHub Pages)</h4>
+          <p>
+            Upload this as <b>index.html</b> to your repo → Settings → Pages → Deploy from branch.
+            Your site will be live in minutes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div>&copy; <span id="year"></span> Yusuf Suleiman Babana. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
